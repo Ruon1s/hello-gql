@@ -1,0 +1,2 @@
+# hello-gql
+Graphql practise

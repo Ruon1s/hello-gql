@@ -3,14 +3,21 @@ import {ApolloServer} from 'apollo-server-express';
 import schemas from './schemas/index.js';
 import resolvers from './resolvers/index.js';
 import express from 'express';
+import dotenv from 'dotenv';
+import connectDB from './database/db.js'
+
+dotenv.config();
 
 (async () => {
     try {
+        const con = await connectDB();
+        if(con){
+            console.log('connection to db succesful');
+        }
         const server = new ApolloServer({
             typeDefs: schemas,
             resolvers: resolvers,
         });
-
         const app = express();
 
         server.applyMiddleware({app});

@@ -1,10 +1,11 @@
 'use strict';
+
 import {ApolloServer} from 'apollo-server-express';
 import schemas from './schemas/index.js';
 import resolvers from './resolvers/index.js';
 import express from 'express';
-import dotenv from 'dotenv';
 import connectDB from './database/db.js'
+import dotenv from 'dotenv';
 
 dotenv.config();
 

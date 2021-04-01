@@ -7,4 +7,7 @@ export default gql`
       speciesName: String
       category: Category
    }
+   extend type Mutation {
+     addSpecies(speciesName: String!, category: ID!): Species
+   }
 `;

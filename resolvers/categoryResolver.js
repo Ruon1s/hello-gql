@@ -1,3 +1,5 @@
+import Category from '../models/category.js'
+
 const categoryData = [
     {
         id: '1',
@@ -9,7 +11,14 @@ export default {
     Species: {
         category(parent) {
             console.log('category:' + parent);
-            return categoryData.filter(category => category.id === parent.category).pop();
+            return Category.findById(parent.category);
         }
-    }
+    },
+    Mutation: {
+        addCategory: (parent, args) => {
+            console.log(args);
+            const newCategory = new Category(args);
+            return newCategory.save();
+        },
+    },
 };
